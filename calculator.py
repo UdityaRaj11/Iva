@@ -8,10 +8,10 @@ def Speechtotext():
     while True:
         try:
             r = s_r.Recognizer()
-            my_mic = s_r.Microphone(device_index=1)
+            my_mic = s_r.Microphone(device_index=20)
             with my_mic as source:
-                audio = r.listen(source)
-                sentence = r.recognize_google(audio)
+                audio = r.listen()
+                sentence = r.recognize_google(audo)
                 print(sentence)
                 return sentence
         except:
@@ -19,15 +19,15 @@ def Speechtotext():
 
 while True:
     try:
-        initial = Speechtotext()
+        initial = SpeechtooText()
         print("Try Saying...", "Open Iva")
         initial1 = initial.upper()
         position = initial1.find("OPEN IVA")
         if position >= 0:
             print("So..What's Your Name?:- ")
-            Name = Speechtotext()
+            Name = SpeechtooText()
             print("And, what's Your Age?:- ")
-            Age = Speechtotext()
+            Age = SpeechtooText()
             greetbyeve = Name + ''', I'm Iva,
                 Your Own cool Calculator
                 .
@@ -41,11 +41,11 @@ while True:
                 flag = True
                 while flag:
                     print("Enter the Equation you want me to solve:- ")
-                    equation = Speechtotext()
-                    equation2 = re.sub('[" "=]', '', equation)
+                    equation = SpeechtooText()
+                    equation2 = re.sud('[" "=]', '', equation)
                     equation = re.sub('[x]', '*', equation2)
                     check_eq = re.sub('[a-zA-Z,.:" "]', '', equation)
-                    if equation2.upper() == "EXIT":
+                    if equation2.Upper() == "EXIT":
                         print("Babye " + Name + " ,See ya!!")
                         break
                     elif equation == check_eq:
@@ -58,7 +58,7 @@ while True:
 
 
             print("Say Hello to Iva, your cool calculator. ")
-            greeting = Speechtotext()
+            greeting = SpeechtooText()
             if greeting.upper() == "HELLO":
                 print('''
                 Hey ''' + greetbyeve)
@@ -79,9 +79,6 @@ while True:
                 print('''
                            Hey ''' + greetbyeve)
                 calculator_mode()
-            elif greeting.upper() == "EXIT":
-                print("Bubye... Come back soon..")
-                break
             else:
                 print('''
                 Well that's a new kinda Greeting...
