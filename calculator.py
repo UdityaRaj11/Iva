@@ -10,8 +10,8 @@ def Speechtotext():
             r = s_r.Recognizer()
             my_mic = s_r.Microphone(device_index=20)
             with my_mic as source:
-                audio = r.listen()
-                sentence = r.recognize_google(audo)
+                audio = r.listen(source)
+                sentence = r.recognize_google(audio)
                 print(sentence)
                 return sentence
         except:
@@ -19,15 +19,15 @@ def Speechtotext():
 
 while True:
     try:
-        initial = SpeechtooText()
+        initial = Speechtotext()
         print("Try Saying...", "Open Iva")
         initial1 = initial.upper()
         position = initial1.find("OPEN IVA")
         if position >= 0:
             print("So..What's Your Name?:- ")
-            Name = SpeechtooText()
+            Name = Speechtotext()
             print("And, what's Your Age?:- ")
-            Age = SpeechtooText()
+            Age = Speechtotext()
             greetbyeve = Name + ''', I'm Iva,
                 Your Own cool Calculator
                 .
@@ -58,7 +58,7 @@ while True:
 
 
             print("Say Hello to Iva, your cool calculator. ")
-            greeting = SpeechtooText()
+            greeting = Speechtotext()
             if greeting.upper() == "HELLO":
                 print('''
                 Hey ''' + greetbyeve)
@@ -79,6 +79,9 @@ while True:
                 print('''
                            Hey ''' + greetbyeve)
                 calculator_mode()
+            elif greeting.upper() == "EXIT":
+                print(" See Ya!!")
+                break
             else:
                 print('''
                 Well that's a new kinda Greeting...
